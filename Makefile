@@ -1,5 +1,5 @@
 # Image URL to use all building/pushing image targets
-IMG ?= csi:latest
+IMG ?= mospany/csi:latest
 
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)
 ifeq (,$(shell go env GOBIN))
@@ -34,14 +34,14 @@ vet: ## Run go vet against code.
 
 .PHONY: build
 build: fmt vet ## Build manager binary.
-	go build -o bin/manager main.go
+	go build -o bin/csi main.go
 
 .PHONY: run
 run: fmt vet ## Run a csi driver from your host.
 	go run ./main.go
 
 .PHONY: docker-build
-docker-build: test ## Build docker image with the manager.
+docker-build:  ## Build docker image with the manager.
 	docker build -t ${IMG} .
 
 .PHONY: docker-push
