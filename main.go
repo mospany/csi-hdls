@@ -29,7 +29,7 @@ import (
 var (
 	endpoint = flag.String("endpoint", "unix://tmp/csi.sock", "CSI Endpoint")
 	version  = flag.Bool("version", false, "Print the version and exit.")
-	nodeID   = flag.String("nodeid", "", "Node ID")
+	nodeID   = flag.String("nodeid", "k8s-work-node", "Node ID")
 )
 
 func main() {
