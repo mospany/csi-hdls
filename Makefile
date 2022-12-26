@@ -1,5 +1,5 @@
 # Image URL to use all building/pushing image targets
-IMG ?= mospany/csi:latest
+IMG ?= mospany/csi-demo:latest
 
 # Get the currently used golang install path (in GOPATH/bin, unless GOBIN is set)
 ifeq (,$(shell go env GOBIN))
@@ -34,7 +34,7 @@ vet: ## Run go vet against code.
 
 .PHONY: build
 build: fmt vet ## Build manager binary.
-	go build -o bin/csi main.go
+	go build -o bin/csi-demo main.go
 
 .PHONY: run
 run: fmt vet ## Run a csi driver from your host.
