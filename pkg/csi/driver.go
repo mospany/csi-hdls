@@ -60,6 +60,7 @@ func (d *Driver) Run() error {
 	if err != nil {
 		return err
 	}
+	klog.Infof("endpoint: %s, scheme: %v, addr: %v", d.endpoint, scheme, addr)
 
 	listener, err := net.Listen(scheme, addr)
 	if err != nil {

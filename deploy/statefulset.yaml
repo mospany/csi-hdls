@@ -25,11 +25,11 @@ spec:
       containers:
         - args:
             - --endpoint=$(CSI_ENDPOINT)
-            - --logtostderr
+            #- --logtostderr
             - --nodeid=$(NODE_NAME)
-            - "--nfs-server=10.5.64.106"
-            - "--nfs-server-share-point=/root/data"
-            - "--nfs-local-mount-point=/mnt/shared"
+            #- "--nfs-server=10.5.64.106"
+            #- "--nfs-server-share-point=/root/data"
+            #- "--nfs-local-mount-point=/mnt/shared"
           env:
             - name: CSI_ENDPOINT
               value: unix:///var/lib/csi/sockets/pluginproxy/csi.sock
@@ -37,7 +37,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
-          image: registry.cn-hangzhou.aliyuncs.com/hdls/csi-demo:latest
+          image: mospany/csi-demo:latest
           livenessProbe:
             failureThreshold: 5
             httpGet:

@@ -20,7 +20,7 @@ spec:
       containers:
         - args:
             - --endpoint=$(CSI_ENDPOINT)
-            - --logtostderr
+            #- --logtostderr
             - --nodeid=$(NODE_NAME)
           env:
             - name: CSI_ENDPOINT
@@ -29,7 +29,7 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: spec.nodeName
-          image: registry.cn-hangzhou.aliyuncs.com/hdls/csi-demo:latest
+          image: mospany/csi-demo:latest
           lifecycle:
             preStop:
               exec:

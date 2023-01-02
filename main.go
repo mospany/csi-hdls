@@ -33,6 +33,7 @@ var (
 )
 
 func main() {
+	flag.Parse()
 	if *version {
 		info, err := csi.GetVersionJSON()
 		if err != nil {
@@ -44,6 +45,8 @@ func main() {
 	if *nodeID == "" {
 		klog.Fatalln("nodeID must be provided")
 	}
+
+	klog.Infof("%v", os.Args[:])
 
 	drv := csi.NewDriver(*endpoint, *nodeID)
 	if err := drv.Run(); err != nil {
